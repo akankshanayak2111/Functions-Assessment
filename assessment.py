@@ -113,7 +113,7 @@ def shipping_cost(fruit):
     5
 
     """
-
+    #returns 0 if the is_berry() function returns true and 5 if the is_berry() function returns false
     if is_berry(fruit) == True:
         return 0
     elif is_berry(fruit) == False:
@@ -130,11 +130,13 @@ def append_to_list(lst, num):
 
     """
     new_list = []
+    #adding the num argument to the end of the new list
     new_list = lst + [num]
     return new_list
 
 
-def calculate_price(base_price, state_abbr, tax_rate = 0.05 ):               #tax_rate is the optional variable
+#tax_rate is the optional variable
+def calculate_price(base_price, state_abbr, tax_rate = 0.05):               
     """Calculate total price of an item, figuring in state taxes and fees.
 
     >>> calculate_price(40, "CA")
@@ -157,17 +159,20 @@ def calculate_price(base_price, state_abbr, tax_rate = 0.05 ):               #ta
 
     """
     total_price = 0
-    
+    #using if conditions to check if a fee needs to be added based on the state_abbr
     if state_abbr == 'CA':
         total_price_before_fee = base_price + (tax_rate * base_price) 
-        total_price = total_price_before_fee + total_price_before_fee * 0.03    # added the state fee to the cost with tax
+        # added the state fee to the cost with tax
+        total_price = total_price_before_fee + total_price_before_fee * 0.03    
         return total_price
     elif state_abbr == 'PA':
-        total_price = base_price + (tax_rate * base_price) + 2                  #added the highway safety fee for PA
+        #added the highway safety fee for PA
+        total_price = base_price + (tax_rate * base_price) + 2                  
         return total_price
     elif state_abbr == 'MA':
         if base_price < 100:
-            total_price = base_price + (tax_rate * base_price) + 1              # added the commonwealth fund fee for MA based on the base price
+            # added the commonwealth fund fee for MA based on the base price
+            total_price = base_price + (tax_rate * base_price) + 1              
             return total_price
         elif base_price >= 100:
             total_price = base_price + (tax_rate * base_price) + 3
@@ -206,13 +211,15 @@ def calculate_price(base_price, state_abbr, tax_rate = 0.05 ):               #ta
 
 def append_list(list_name, *args):
     """ Returns a list with multiple arguments appended to the list """
-    for arg in args:            #looping over each of the multiple arguments passed in
+    #looping over each of the multiple arguments passed in
+    for arg in args:            
         list_name += [arg] 
     return list_name
 
 def function_outer(word):
     """an outer function with a nested function calls the nested function"""
     def function_inner():
+        #returns the argument passed to the outer function three times
         return word * 3
     result = function_inner()
     print tuple([word, result])

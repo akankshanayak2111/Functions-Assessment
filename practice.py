@@ -90,6 +90,7 @@ def print_sign (int1):
 
 
 def is_divisible_by_three(int1):
+    """ checks whether the integer passed in as an argument is divisible by 3"""
     if int1 % 3 == 0:
         return True
     else:
@@ -194,9 +195,11 @@ def sign_and_parity(int1):
 #    greeting.
 
 def full_title(first_and_last_name, job_title = "Engineer"):
+    """ returns the job title and name as one string"""
     return job_title + ' ' + first_and_last_name
 
 def write_letter(recipient_name, job_title, sender_name):
+    """ returns the message after calling the full_title function above"""
     letter_content =  "Dear " + full_title(recipient_name, job_title) +  ", I think you are amazing! Sincerely, " + sender_name
     print letter_content
 ###############################################################################
